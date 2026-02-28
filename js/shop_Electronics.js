@@ -1,0 +1,148 @@
+$(document).ready(function () {
+    let url = "http://localhost:9999"
+    function fetchFun(url, method, data) {
+        if (data == "") {
+            return new Promise((resolve, reject) => {
+
+                console.log(url, method, data)
+
+
+
+                fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    // body: JSON.stringify(data)
+                })
+                    .then(response => {
+                        console.log(111, response)
+                        if (response.ok) {
+                            response.json().then(jsonResponse => {
+                                resolve(jsonResponse)
+                            })
+
+                        } else {
+                            response.json().then(jsonResponse => {
+                                console.log('JSON response:', jsonResponse);
+                                alert(jsonResponse.message)
+                            })
+                        }
+                        // throw new Error('Network response was not ok.');
+                    })
+                // .then(jsonResponse => {
+                //     console.log('JSON response:', jsonResponse);
+                //     alert(jsonResponse.message)
+                // })
+                // .catch(error => {
+                //     console.error('Request failed:', error);
+                // });
+
+            })
+        } else {
+            return new Promise((resolve, reject) => {
+
+                console.log(url, method, data)
+
+
+
+                fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => {
+                        console.log(111, response)
+                        if (response.ok) {
+                            response.json().then(jsonResponse => {
+                                resolve(jsonResponse)
+                            })
+
+                        } else {
+                            response.json().then(jsonResponse => {
+                                console.log('JSON response:', jsonResponse);
+                                alert(jsonResponse.message)
+                            })
+                        }
+                        // throw new Error('Network response was not ok.');
+                    })
+                // .then(jsonResponse => {
+                //     console.log('JSON response:', jsonResponse);
+                //     alert(jsonResponse.message)
+                // })
+                // .catch(error => {
+                //     console.error('Request failed:', error);
+                // });
+
+            })
+        }
+
+
+    }
+
+
+
+
+    getCommodity()
+    function getCommodity() {
+        let data = {
+            "page_size": 9999999,
+            "page_no": 1
+        }
+
+        fetchFun(url + "/api/items/category/Electronics?page_no=1&page_size=99999", "GET", "").then(res => {
+            console.log("Wearing", res)
+
+            let arr = res
+            let str = ""
+            for (let i = 0; i < arr.length; i++) {
+                let item = arr[i];
+                str += `
+                
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="http://localhost:9999/img/${item.pic}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">${item.item_name}</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$${item.original_price}</span>
+                                $${item.actual_price}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="item.html?id=${item._id}">View
+                                    options</a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                `
+            }
+
+            $("#itemCard").append(str)
+
+        })
+
+    }
+
+})
+//Runs when the document is ready. It contains a function that essentially fetches a list of products of a particular category from the server and dynamically generates HTML elements to display them.
+
+//First, a function called fetchFun is defined to send an HTTP request to a specified URL. Depending on the method and data passed in, it can send either a GET or POST request and can process JSON data returned by the server.
+
+//Next, a function called getCommodity is defined to get a list of products of a specific category. It sends a GET request to the server for a list of commodities of a specific category (in this case "Electronics").
+
+//When the server returns the product data, it is converted into HTML elements, each wrapped in a Bootstrap card that displays the product's image, name, original price, and actual price. At the same time, a button is added for each product, 
+//which the user can click to view the product details.
+
+//Finally, the generated HTML element is added to the #itemCard element on the page to display the product list.
+
+//In summary, this code implements the function of retrieving a list of products of a specific category from the server and displaying it on the web page.

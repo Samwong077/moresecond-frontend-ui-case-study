@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MoreSecond</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <!-- CSS -->
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"/> <!-- CSS: Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" /> <!-- CSS: Own css  -->
+    <!-- Vendor CSS Files -->
+    <link href="assets/swiper/swiper-bundle.css" rel="stylesheet">
+    <link href="assets/bootstrap/icons/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">MoreSecond</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item mx-2"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Wears.html">Wearing</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Electronics.html">Electronics</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Living.html">Living</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Luxury.html">Luxury</a></li>
+                    <!-- <li class="nav-item mx-2">
+                        <a class="nav-link active" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            All Products
+                            <i class="bi-arrow-right-circle-fill me-2"></i>
+                        </a>
+                    </li> -->
+                </ul>
+                <form class="d-flex">
+                    <!-- User info button displayed after login -->
+                    <button id="userBtn" type="button" class="btn btn-outline-dark d-none" onclick="window.location.href = 'account.html';" >
+                        <i class="bi-person-circle me-2"></i>
+                        <span id="userId"></span>
+                    </button>
+                    <!-- Login -->
+                    <button id="loginBtn" type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi-person-circle me-2"></i>
+                        Login
+                    </button>
+                      <!-- Shopping Cart -->
+                      <button id="cartBtn" type="button" class="btn btn-outline-dark"
+                      onclick="location.href='shopping_cart.html';">
+                      <i class="bi-cart4 me-2"></i>Cart
+                  </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- LoginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="loginModalLabel">MoreSecond Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-5">
+                    <form class="my-3">
+                        <label for="email" class="form-label mb-1 text-black-80 bi-person-fill">Email:</label>
+                        <input type="email" class="form-control">
+                    </form>
+                    <form class="mb-5">
+                        <label for="psw" class="form-label mb-1 text-black-80 bi-lock-fill">Password:</label>
+                        <input type="password" class="form-control">
+                    </form>
+                    <button type="submit" class="btn btn-primary mb-4" style="width: 100%;">Login</button>
+                    <div class="text-center mb-4">Don't have an account yet? <a href="#" data-bs-toggle="modal" data-bs-target="#registeModal">Create account</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- RegisterModal -->
+    <div class="modal fade" id="registeModal" tabindex="-1" aria-labelledby="registeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="registeModalLabel">MoreSecond Create account</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-5">
+                    <form class="my-3">
+                        <label for="email" class="form-label mb-1 text-black-80 bi-person-fill">Email:</label>
+                        <input type="email" class="form-control">
+                    </form>
+                    <form class="mb-5">
+                        <label for="psw" class="form-label mb-1 text-black-80 bi-lock-fill">Password:</label>
+                        <input type="password" class="form-control">
+                    </form>
+                    <button type="submit" class="btn btn-primary mb-4" style="width: 100%;">Sign up</button>
+                    <div class="text-center mb-4">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sideoffcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">All Categories</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi-search"></i></span>
+                        <input class="form-control" type="text" id="categorySearch" placeholder="Search categories..." aria-label="Search categories..." aria-describedby="button-search" />
+                    </div>
+                </div>
+                <button type="button" class="list-group-item list-group-item-action category">Women's</button>
+                <button type="button" class="list-group-item list-group-item-action category">Men's</button>
+                <button type="button" class="list-group-item list-group-item-action category">Electronics</button>
+                <button type="button" class="list-group-item list-group-item-action category">Home & Furniture</button>
+                <button type="button" class="list-group-item list-group-item-action category">Toys & Games</button>
+                <button type="button" class="list-group-item list-group-item-action category">Babies & Kids</button>
+                <button type="button" class="list-group-item list-group-item-action category">Books & Stationery</button>
+                <button type="button" class="list-group-item list-group-item-action category">Luxury</button>             
+            </div>
+        </div>
+    </div>
+    <!-- All Items Section-->
+    <section class="py-5" id="itemContent">
+        <div class="container px-4 px-lg-5">
+            <h2>All Products</h2>
+            <p class="fw-light my-4" id="itemCount"></p>
+            <!-- Price range filter -->
+            <div class="mb-5 row d-flex align-items-center">
+                Price Range:
+                <input type="text" class="form-control mx-3" id="lowRange" placeholder="Set Minimum Price" style="width: 20%;">
+                -
+                <input type="text" class="form-control mx-3" id="highRange" placeholder="Set Maximum Price" style="width: 20%;">
+                <button class="btn btn-success" type="submit" id="searchBtn" style="width: 10%;">Search</button>
+            </div>
+        </div>
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="itemCard">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                         <!-- Sale badge-->
+                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/item1.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Incase 13" Macbook Air Sleeve</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$70.00</span>
+                                <span class="itemPrice">$45.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img1.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Louis vuitton authentic Greenwich demier ebene bag</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$1990.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img2.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">I AM GIA Tan Teddy Jacket Size XS</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$45.00</span>
+                                <span class="itemPrice">$35.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img3.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Chanel Limited Edition Perspex White Sneakers</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$50.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img4.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Instax Mini 8 - White</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$30.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img5.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Uncommon Squishies!</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$15.00</span>
+                                <span class="itemPrice">$10.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img13.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Motivation book</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$5.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img10.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Polo Ralph Lauren Annex Parka Jacket size L</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$299.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img6.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">BNWT Cinnamoroll Sanrio Japanese Collectible Toys</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$29.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img7.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Queen size wrought iron bed frame & mattress combo</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$230.00</span>
+                                <span class="itemPrice">$128.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img9.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Essentials Fear of God T-shirt</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$70.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img8.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">IPhone 13 Pro</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$650.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>                  
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img15.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Burberry orange sunglasses (with box and case)</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$300.00</span>
+                                <span class="itemPrice">$280.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img12.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">106PCS Cross Stitch Embroidery Thread Hoop Kit Skeins Floss Tools Sewing Set AU</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$50.00</span>
+                                <span class="itemPrice">$35.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>              
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img11.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Comfort technology socks</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$3.20</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="img/img14.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Easels for sale 150 / 175 cm new</h5>
+                                <!-- Product price-->
+                                <span class="itemPrice">$35.00</span>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; MoreSecond 2024</p></div>
+        <p class="m-0 text-center text-white mt-3">info@mysite.com</p>
+        <p class="m-0 text-center text-white mb-2">Tel: 123-456-7890</p>
+    </footer>
+</body>
+
+<!-- Vendor JS Files -->
+<script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="assets/swiper/swiper-bundle.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Own JS-->
+<script src="js/scripts.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    // Price range filter
+    $('#searchBtn').on('click', function() {
+        var minPrice = $("#lowRange").val();
+        var maxPrice = $("#highRange").val();
+        console.log(maxPrice);
+        if (maxPrice) {
+            // Loop through each product card and check if it falls within the price range
+            $('#itemCard .col').each(function() {
+                var cardPriceText = $(this).find('.text-center').text();
+                var cardPrice = parseFloat(cardPriceText.match(/\$([\d.]+)/)[1]);
+                if (cardPrice >= minPrice && cardPrice <= maxPrice) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        } else {
+            // If no price range is specified, show all product cards
+            $('#itemCard .col').show();
+        }
+    });
+
+    $(".card-footer a").click(function(){
+
+        // get product data
+        var productName = $(this).closest(".card").find("h5").text();
+        var productImg = $(this).closest(".card").find(".card-img-top").attr("src");
+        var productPrice = $(this).closest(".card").find(".card-body .text-center .itemPrice").text().trim();
+    
+        var queryParams = "?name=" + encodeURIComponent(productName) +
+                        "&img=" + encodeURIComponent(productImg) +
+                        "&price=" + encodeURIComponent(productPrice);
+        
+        console.log(queryParams);
+
+        window.location.href = "item.html" + queryParams;
+    });
+
+
+});
+</script>
+</html>

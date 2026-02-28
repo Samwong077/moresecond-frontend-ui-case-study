@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Item Display</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <!-- CSS -->
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"/> <!-- CSS: Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" /> <!-- CSS: Own css  -->
+    <!-- Vendor CSS Files -->
+    <link href="assets/swiper/swiper-bundle.css" rel="stylesheet">
+    <link href="assets/bootstrap/icons/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">MoreSecond</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item mx-2"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Wears.html">Wearing</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Electronics.html">Electronics</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Living.html">Living</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="shop_Luxury.html">Luxury</a></li>
+                    <!-- <li class="nav-item mx-2">
+                        <a class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            All Products
+                            <i class="bi-arrow-right-circle-fill me-2"></i>
+                        </a>
+                    </li> -->
+                </ul>
+                <form class="d-flex">
+                    <!-- User info button displayed after login -->
+                    <button id="userBtn" type="button" class="btn btn-outline-dark d-none" onclick="window.location.href = 'account.html';">
+                        <i class="bi-person-circle me-2"></i>
+                        <span id="userId"></span>
+                    </button>
+                    <!-- Login -->
+                    <button id="loginBtn" type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi-person-circle me-2"></i>
+                        Login
+                    </button>
+                      <!-- Shopping Cart -->
+                      <button id="cartBtn" type="button" class="btn btn-outline-dark"
+                      onclick="location.href='shopping_cart.html';">
+                      <i class="bi-cart4 me-2"></i>Cart
+                  </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- LoginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="loginModalLabel">MoreSecond Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-5">
+                    <form class="my-3">
+                        <label for="email" class="form-label mb-1 text-black-80 bi-person-fill">Email:</label>
+                        <input type="email" class="form-control EmailLogin">
+                    </form>
+                    <form class="mb-5">
+                        <label for="psw" class="form-label mb-1 text-black-80 bi-lock-fill">Password:</label>
+                        <input type="password" class="form-control PasswordLogin">
+                    </form>
+                    <button type="submit" class="btn btn-primary mb-4 Login" style="width: 100%;">Login</button>
+                    <div class="text-center mb-4">Don't have an account yet? <a href="#" data-bs-toggle="modal"
+                            data-bs-target="#registeModal">Create account</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- RegisterModal -->
+    <div class="modal fade" id="registeModal" tabindex="-1" aria-labelledby="registeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="registeModalLabel">MoreSecond Create account</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-5">
+                    <form class="my-3">
+                        <label for="name" class="form-label mb-1 text-black-80 bi-person-fill">firstName:</label>
+                        <input type="text" class="form-control firstNameSignUp">
+                    </form>
+                    <form class="my-3">
+                        <label for="name" class="form-label mb-1 text-black-80 bi-person-fill">lastName:</label>
+                        <input type="text" class="form-control lastNameSignUp">
+                    </form>
+                    <form class="my-3">
+                        <label for="name" class="form-label mb-1 text-black-80 bi-person-fill">Name:</label>
+                        <input type="text" class="form-control NameSignUp">
+                    </form>
+                    <form class="my-3">
+                        <label for="phoneNumber"
+                            class="form-label mb-1 text-black-80 bi-person-fill">phoneNumber:</label>
+                        <input type="text" class="form-control phoneNumberSignUp">
+                    </form>
+
+                    <form class="my-3">
+                        <label for="email" class="form-label mb-1 text-black-80 bi-person-fill">Email:</label>
+                        <input type="email" class="form-control EmailSignUp">
+                    </form>
+                    <form class="mb-5">
+                        <label for="psw" class="form-label mb-1 text-black-80 bi-lock-fill">Password:</label>
+                        <input type="password" class="form-control EmailPassword" id="password">
+                    </form>
+
+                    <button type="submit" class="btn btn-primary mb-4 signUp" style="width: 100%;">Sign
+                        up</button>
+                    <div class="text-center mb-4">Already have an account? <a href="#" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">Log in</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sideoffcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">All Categories</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi-search"></i></span>
+                        <input class="form-control" type="text" id="categorySearch" placeholder="Search categories..." aria-label="Search categories..." aria-describedby="button-search" />
+                    </div>
+                </div>
+                <button type="button" class="list-group-item list-group-item-action category">Women's</button>
+                <button type="button" class="list-group-item list-group-item-action category">Men's</button>
+                <button type="button" class="list-group-item list-group-item-action category">Electronics</button>
+                <button type="button" class="list-group-item list-group-item-action category">Home & Furniture</button>
+                <button type="button" class="list-group-item list-group-item-action category">Toys & Games</button>
+                <button type="button" class="list-group-item list-group-item-action category">Babies & Kids</button>
+                <button type="button" class="list-group-item list-group-item-action category">Books & Stationery</button>
+                <button type="button" class="list-group-item list-group-item-action category">Luxury</button>             
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-6 "><img class="card-img-top itemDisplay mb-5 mb-md-0" id="productImg" src="" alt="..." /></div>
+                <div class="col-md-6">
+                    <div class="small mb-1">Electronics</div>
+                    <h1 class="display-5 fw-bolder" id="productName"></h1>
+                    <div class="fs-4 my-4">
+                        <span class="itemPrice" id="productPrice"></span>
+                    </div>
+                    <button id="buyNowButton" class="button-buy-now buyNow">Buy now</button>
+                    <button id="AddCart" class="button-buy-now AddCart">Add Cart</button>
+                    <div class="my-4">
+                        <h3 class="text-uppercase">product description</h3>
+                        <hr>
+                        <p class="mt-4 mb-5 productDescription" >
+                            <!-- Incase 13" Macbook Air Sleeve (Colour: Slate) -->
+                        </p>
+                    </div>
+                    
+                    <!-- <div class="card text-center profile-card">
+                        <div class="card-body">
+                            <img class="card-img-top mb-3" src="img/profile-img.jpg" alt="..." />
+                            <h5 class="card-title">Kevin Anderson</h5>
+                         
+                            <div class="card-text d-flex justify-content-center small text-warning mb-2">
+                                5.0&nbsp;
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+
+                            <a href="#" class="btn btn-danger" style="width: 30%;" data-bs-toggle="modal" data-bs-target="#loginModal">Chat</a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Recent items section-->
+    <section class="py-5 bg-light">
+        <div class="container px-4 px-lg-5 mt-5">
+            <h2 class="fw-bolder mb-4">Recent Added</h2>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center itemCommodity">
+                <!-- <div class="col mb-5">
+                    <div class="card h-100">
+                       
+                        <img class="card-img-top" src="img/img1.jpg" alt="..." />
+                      
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                
+                                <h5 class="fw-bolder">Fancy Product</h5>
+                                
+                                $40.00 - $80.00
+                            </div>
+                        </div>
+                      
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="item.html">View options</a></div>
+                        </div>
+                    </div>
+                </div> -->
+              
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; MoreSecond 2024</p></div>
+        <p class="m-0 text-center text-white mt-3">info@mysite.com</p>
+        <p class="m-0 text-center text-white mb-2">Tel: 123-456-7890</p>
+    </footer>
+</body>
+
+<!-- Vendor JS Files -->
+<script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="assets/swiper/swiper-bundle.js"></script>
+<!-- jQuery -->
+<script src="./js/jquery-3.6.0.min.js"></script>
+<!-- Own JS-->
+<script src="js/scripts.js"></script>
+
+<script src="js/item.js"></script>
+<!-- Product JS -->
+<!-- <script src="js/product.js"></script> -->
+
+<script>
+// $(document).ready(function(){
+
+    // var queryString = window.location.search;
+    // var urlParams = new URLSearchParams(queryString);
+    
+    // var productName = urlParams.get("name");
+    // var productImg = urlParams.get("img");
+    // var productPrice = urlParams.get("price");
+
+    // $("#productName").text(productName);
+    // $("#productImg").attr("src", productImg);
+    // $("#productPrice").text(productPrice);
+// });
+
+</script>
+</html>
